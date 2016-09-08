@@ -5,13 +5,24 @@
 #include <fstream>
 #include <cmath>
 
-class Vector3Dd
+
+#ifndef _MM_ALIGN32
+#ifdef __GNUC__
+#define _MM_ALIGN32 __attribute__((aligned (32)))
+#endif
+#ifdef __MSVC__
+#define _MM_ALIGN32 __declspec(align(32))
+#endif
+#endif
+
+class _MM_ALIGN32 Vector3Dd
 {
     public:
         inline Vector3Dd() : x(0), y(0), z(0) {}
         inline Vector3Dd(double a, double b, double c) : x(a), y(b), z(c) {}
         inline Vector3Dd(const Vector3Dd& orig) : x(orig.x), y(orig.y), z(orig.z) {}
-        inline virtual ~Vector3Dd() {};
+        //inline virtual ~Vector3Dd() {};
+        inline ~Vector3Dd() {};
 
         inline const Vector3Dd& operator +=(const Vector3Dd& v)
         {

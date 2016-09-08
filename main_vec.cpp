@@ -18,7 +18,6 @@
 #include "src/Vector3Dd.h"
 #include "src/Vector3Dsse.h"
 
-
 Timer clocks[12];
 double simulation_time;
 
@@ -41,18 +40,22 @@ int main(int argc, char** argv)
 
 #ifdef PTR
     Vector3Dsse* v_sse_array = new Vector3Dsse[N];
-    Vector3Dd* v_d_array = new Vector3Dd[N];
-    Vector3Df* v_f_array = new Vector3Df[N];
+    Vector3Df*   v_f_array = new Vector3Df[N];
+    Vector3Dd*   v_d_array = new Vector3Dd[N];
 #else
     Vector3Dsse v_sse_array[N];
-    Vector3Dd v_d_array[N];
-    Vector3Df v_f_array[N];
-#endif
+    Vector3Df   v_f_array[N];
+    Vector3Dd   v_d_array[N];
+#endif  
 
     Vector3Dsse v_sse_test(1.23, 2.34, 3.45);
     Vector3Df v_f_test(1.23, 2.34, 3.45);
     Vector3Dd v_d_test(1.23, 2.34, 3.45);
 
+    std::cout << "== POINTER CHECK  ==" << "\n";
+    printf("%p %p %p %p %p\n", &v_sse_array[0], &v_sse_array[1], &v_sse_array[2], &v_sse_array[3], &v_sse_array[N-1]);
+    printf("%p %p %p %p %p\n", &v_f_array[0]  , &v_f_array[1]  , &v_f_array[2]  , &v_f_array[3]  , &v_f_array[N-1]);
+    printf("%p %p %p %p %p\n", &v_d_array[0]  , &v_d_array[1]  , &v_d_array[2]  , &v_d_array[3]  , &v_d_array[N-1]);
 
     for (int i = 0; i < N; i++)
     {
@@ -231,23 +234,30 @@ int main(int argc, char** argv)
 
     clocks[11].toc();
 
+    for (int j = 0; j < N; j++)
+    {
+        l_sse[j] *= 1.0;
+        l_f[j] *= 1.0;
+        l_d[j] *= 1.0;
+    }
+
     // TIMING RESULTS
-    std::cout << "== TEST 1 ==" << "\n";
+    std::cout << "== TEST 1 (SUM)  ==" << "\n";
     std::cout << "TOTAL EXECUTION [SSE] WALL-TIME = " << clocks[0].time() << " [s] \n";
     std::cout << "TOTAL EXECUTION [FLT] WALL-TIME = " << clocks[1].time() << " [s] \n";
     std::cout << "TOTAL EXECUTION [DBL] WALL-TIME = " << clocks[2].time() << " [s] \n";
 
-    std::cout << "== TEST 2 ==" << "\n";
+    std::cout << "== TEST 2 (NORM) ==" << "\n";
     std::cout << "TOTAL EXECUTION [SSE] WALL-TIME = " << clocks[3].time() << " [s] \n";
     std::cout << "TOTAL EXECUTION [FLT] WALL-TIME = " << clocks[4].time() << " [s] \n";
     std::cout << "TOTAL EXECUTION [DBL] WALL-TIME = " << clocks[5].time() << " [s] \n";
 
-    std::cout << "== TEST 3 ==" << "\n";
+    std::cout << "== TEST 3 (CROSS)==" << "\n";
     std::cout << "TOTAL EXECUTION [SSE] WALL-TIME = " << clocks[6].time() << " [s] \n";
     std::cout << "TOTAL EXECUTION [FLT] WALL-TIME = " << clocks[7].time() << " [s] \n";
     std::cout << "TOTAL EXECUTION [DBL] WALL-TIME = " << clocks[8].time() << " [s] \n";
 
-    std::cout << "== TEST 4 ==" << "\n";
+    std::cout << "== TEST 4 (LEN)  ==" << "\n";
     std::cout << "TOTAL EXECUTION [SSE] WALL-TIME = " << clocks[9].time() << " [s] \n";
     std::cout << "TOTAL EXECUTION [FLT] WALL-TIME = " << clocks[10].time() << " [s] \n";
     std::cout << "TOTAL EXECUTION [DBL] WALL-TIME = " << clocks[11].time() << " [s] \n";

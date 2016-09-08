@@ -36,18 +36,14 @@
 #endif
 #endif
 
-
-#ifdef __GNUC__
-class __attribute__((aligned (16))) Vector3Dsse
-#else
-_MM_ALIGN16 class Vector3Dsse
-#endif
+class _MM_ALIGN16  Vector3Dsse
 {
     public:
         inline Vector3Dsse() : mmvalue(_mm_setzero_ps()) {}
         inline Vector3Dsse(float x, float y, float z) : mmvalue(_mm_set_ps(0, z, y, x)) {}
         inline Vector3Dsse(__m128 m) : mmvalue(m) {}
-        virtual ~Vector3Dsse() {}
+        //inline virtual ~Vector3Dsse() {}
+        inline ~Vector3Dsse() {}
 
         inline Vector3Dsse operator+(const Vector3Dsse& b) const
         {

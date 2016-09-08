@@ -5,13 +5,24 @@
 #include <fstream>
 #include <cmath>
 
-class Vector3Df
+
+#ifndef _MM_ALIGN16
+#ifdef __GNUC__
+#define _MM_ALIGN16 __attribute__((aligned (16)))
+#endif
+#ifdef __MSVC__
+#define _MM_ALIGN16 __declspec(align(16))
+#endif
+#endif
+
+class _MM_ALIGN16 Vector3Df
 {
     public:
         inline Vector3Df() : x(0), y(0), z(0) {}
         inline Vector3Df(float a, float b, float c) : x(a), y(b), z(c) {}
         inline Vector3Df(const Vector3Df& orig) : x(orig.x), y(orig.y), z(orig.z) {}
-        inline virtual ~Vector3Df() {}
+        //inline virtual ~Vector3Df() {}
+        inline ~Vector3Df() {}
 
         inline const Vector3Df& operator +=(const Vector3Df& v)
         {
