@@ -1,14 +1,10 @@
 DESCRIPTION
 ==================================================
-The repository contains codes to test the performance 
-of standard and optimized mathematical functions.
+The repository contains codes to test the performance of standard and optimized mathematical functions.
 
-* Trigonometric functions by orlp:
-https://github.com/orlp
-
-* Fast sqrt and invsqrt functions. 
-
-* The library that implements Vector3D class ussing SSE.
+* Trigonometric functions by orlp: https://github.com/orlp  
+* Fast sqrt and invsqrt functions.  
+* The library that implements Vector3D class ussing SSE.  
 
 The purpose of the library is testing the extent of optimization that can 
 be done solely by _g++_ compiler and comapring it to the _in-house_ vectorization/optimization.
@@ -28,11 +24,9 @@ git pull origin master
 
 COMPILING - LINUX
 ==================================================
-To compile a test, one needs to symbolically link
-configuration and Make file.
+To compile a test, one needs to symbolically link configuration and Make file.  
 Those files are in a directory: ```compile_files```.
-For example to run trigonometric function test 
-type in a command line:
+For example to run trigonometric function test type in a command line:
 
 ```
 ln -s ./compile_files/config_sin.mk config.mk
@@ -59,13 +53,10 @@ To run SSE-Vector3D test run in the command line:
 
 COPYRIGHT NOTICE
 ================
-Copyright (C) 2016-,  Pawel Gniewek
-
-Email  : pawel.gniewek@berkeley.edu
-
-All rights reserved.
-
-License: BSD
+Copyright (C) 2016,  Pawel Gniewek  
+Email  : pawel.gniewek@berkeley.edu  
+All rights reserved.  
+License: BSD  
 
 ACKNOWLEDGMENTS
 ===============
