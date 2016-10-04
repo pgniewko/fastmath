@@ -6,7 +6,7 @@ The repository contains codes to test the performance of standard and optimized 
 * Fast sqrt and invsqrt functions.  
 * The library that implements Vector3D class ussing SSE.  
 
-The purpose of the library is testing the extent of optimization that can 
+The purpose of this library is testing the extent of optimization that can 
 be done solely by _g++_ compiler and comapring it to the _in-house_ vectorization/optimization.
 
 GETTING THE CODE
@@ -24,9 +24,9 @@ git pull origin master
 
 COMPILING - LINUX
 ==================================================
-To compile a test, one needs to symbolically link configuration and Make file.  
+To compile a test, one needs to symbolically link configuration and Make files.
 Those files are in a directory: ```compile_files```.
-For example to run trigonometric function test type in a command line:
+For example to run the trigonometric function test, you neet to type in a command line:
 
 ```
 ln -s ./compile_files/config_sin.mk config.mk
