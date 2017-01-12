@@ -25,12 +25,12 @@ git pull origin master
 COMPILING - LINUX
 ==================================================
 To compile a test, one needs to symbolically link configuration and Make files.
-Those files are in a directory: ```compile_files```.
+Those files are in a directory: ```files```.
 For example to run the trigonometric function test, you neet to type in a command line:
 
 ```
-ln -s ./compile_files/config_sin.mk config.mk
-ln -s ./compile_files/Makefile_sin Makefile
+ln -s ./files/config_sin.mk config.mk
+ln -s ./files/Makefile_sin Makefile
 make
 ```
 
