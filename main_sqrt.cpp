@@ -4,8 +4,6 @@
  * License: BSD
  */
 
-#define SQRT_MAGIC_D 0x5fe6ec85e7de30da
-
 #include <iostream>    /* cout, cin */
 #include <math.h>      /* log, sqrt */
 //#include <cmath>      /* log, sqrt */

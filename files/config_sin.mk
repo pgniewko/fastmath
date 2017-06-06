@@ -12,7 +12,7 @@ INCLUDE  := -I/usr/local/include
 LIB      := -L/usr/lib -L/usr/local/lib
 DFLAGS   :=
 
-CXXFLAGS := -lm -Wall -O3 -std=gnu++0x $(INCLUDE) $(DBGFLAGS)
+CXXFLAGS := -Wall -O3 -std=gnu++0x -DFASTMATH $(INCLUDE)
 LDFLAGS  := $(LIB)
 LDLIBS   :=
 

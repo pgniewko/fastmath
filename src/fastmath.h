@@ -1,10 +1,28 @@
 #ifndef FAST_MATH_H
 #define	FAST_MATH_H
 
-#define SQRT_MAGIC_D 0x5fe6ec85e7de30da
+#include <cmath>
+#include <stdint.h>
+
+#define SQRT_MAGIC_D 0x5fe6eb50c7b5379a // FOLLOWING Robertson'12
 
 namespace fastmath
 {
+#ifdef FASTMATH
+    inline double fast_invsqrt(double number)
+    {
+        uint64_t i;
+        double x2, y;
+        
+        x2 = number * 0.5;
+        y = number;
+        i = *(uint64_t *) &y;
+        i = SQRT_MAGIC_D - (i >> 1);
+        y = *(double *) &i;
+        y = y * (1.5 - (x2 * y * y));
+        return y;
+    }
+    
     inline double fast_sin(double x)
     {
         // Polynomial constants generated with sollya.
@@ -40,26 +58,32 @@ namespace fastmath
         return fast_sin(x + pi_2);
     }
 
-    inline double fast_invsqrt(double x)
-    {
-        union // get bits for floating value
-        {
-            double x;
-            long i;
-        } u;
-
-        const double xhalf = 0.5d * x;
-        u.x = x;
-        u.i = SQRT_MAGIC_D - (u.i >> 1);  // gives initial guess y0
-//        u.x = u.x*(1.5d - xhalf*u.x*u.x);
-        u.x = u.x * (1.5008908d - xhalf * u.x * u.x); // Correction following Hacker's delight, 17-4
-        return u.x * (1.5d - xhalf * u.x * u.x); // Newton step, repeating increases accuracy
-    }
-
     inline double fast_sqrt(double x)
     {
         return x * fast_invsqrt(x);
     }
+#else
+    inline double fast_sin(double x)
+    {
+        return sin(x);
+    }
+
+    inline double fast_cos(double x)
+    {
+        return cos(x);
+    }
+
+    inline double fast_invsqrt(double x)
+    {
+        return 1.0 / sqrt(x);
+    }
+
+    inline double fast_sqrt(double x)
+    {
+        return sqrt(x);
+    }
+#endif
+
 }
 
 #endif

@@ -52,10 +52,10 @@ int main(int argc, char** argv)
     Vector3Df v_f_test(1.23, 2.34, 3.45);
     Vector3Dd v_d_test(1.23, 2.34, 3.45);
 
-    std::cout << "== POINTER CHECK  ==" << "\n";
-    printf("%p %p %p %p %p\n", &v_sse_array[0], &v_sse_array[1], &v_sse_array[2], &v_sse_array[3], &v_sse_array[N-1]);
-    printf("%p %p %p %p %p\n", &v_f_array[0]  , &v_f_array[1]  , &v_f_array[2]  , &v_f_array[3]  , &v_f_array[N-1]);
-    printf("%p %p %p %p %p\n", &v_d_array[0]  , &v_d_array[1]  , &v_d_array[2]  , &v_d_array[3]  , &v_d_array[N-1]);
+//    std::cout << "== POINTER CHECK  ==" << "\n";
+//    printf("%p %p %p %p %p\n", &v_sse_array[0], &v_sse_array[1], &v_sse_array[2], &v_sse_array[3], &v_sse_array[N-1]);
+//    printf("%p %p %p %p %p\n", &v_f_array[0]  , &v_f_array[1]  , &v_f_array[2]  , &v_f_array[3]  , &v_f_array[N-1]);
+//    printf("%p %p %p %p %p\n", &v_d_array[0]  , &v_d_array[1]  , &v_d_array[2]  , &v_d_array[3]  , &v_d_array[N-1]);
 
     for (int i = 0; i < N; i++)
     {

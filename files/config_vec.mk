@@ -14,8 +14,6 @@ CXX      := g++
 # "-O3" - optimization level
 # -march=native - optimize for the particular architecture
 DBGFLAGS := -DDEBUG -g -DPTR
-#DBGFLAGS := -DDEBUG -g
-#DBGFLAGS := -DPTR
 DBGFLAGS :=
 
 # Relative include and library paths for compilation of the examples
@@ -23,7 +21,7 @@ INCLUDE  := -I/usr/local/include -I$(CURDIR)/include
 LIB      := -L/usr/lib -L/usr/local/lib
 DFLAGS   :=
 
-CXXFLAGS := -lm -Wall -O3 -msse3 -msse4 -std=gnu++0x $(INCLUDE) $(DBGFLAGS)
+CXXFLAGS := -Wall -O3 -msse3 -msse4 -std=gnu++0x -DFASTMATH $(INCLUDE)
 LDFLAGS  := $(LIB)
 LDLIBS   :=
 
