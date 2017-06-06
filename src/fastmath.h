@@ -4,8 +4,6 @@
 #include <cmath>
 #include <stdint.h>
 
-#define SQRT_MAGIC_D 0x5fe6eb50c7b5379a // FOLLOWING Robertson'12
-
 namespace fastmath
 {
 #ifdef FASTMATH
@@ -17,7 +15,7 @@ namespace fastmath
         x2 = number * 0.5;
         y = number;
         i = *(uint64_t *) &y;
-        i = SQRT_MAGIC_D - (i >> 1);
+        i = 0x5fe6eb50c7b5379a - (i >> 1); // FOLLOWING Robertson'12
         y = *(double *) &i;
         y = y * (1.5 - (x2 * y * y));
         return y;
