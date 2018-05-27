@@ -13,7 +13,7 @@ GETTING THE CODE
 ==================================================
 * To get the code:
 ```
-git clone git@bitbucket.org:pawelgniewek/fastmath.git
+git clone git@github.com:pgniewko/fastmath.git
 ```
 
 * To obtain the most recent version of the code:
@@ -53,8 +53,8 @@ To run SSE-Vector3D test run in the command line:
 
 COPYRIGHT NOTICE
 ================
-Copyright (C) 2016,  Pawel Gniewek  
-Email  : pawel.gniewek@berkeley.edu  
+Copyright (C) 2016-2018,  Pawel Gniewek  
+Email  : gniewko.pablo@gmail.com   
 All rights reserved.  
 License: BSD  
 
