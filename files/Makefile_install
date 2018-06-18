@@ -1,0 +1,9 @@
+PREFIX   := /usr/local
+FILE     :=./src/fastmath.h
+
+PHONY: install
+
+install: 
+	@echo [Installing] $<
+	sudo install -m 755 $(FILE) $(PREFIX)/include
+

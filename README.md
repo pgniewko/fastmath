@@ -21,6 +21,12 @@ git clone git@github.com:pgniewko/fastmath.git
 git pull origin master
 ```
 
+INSTALL `fastmath.h`
+==================================================
+```
+ln -s ./files/Makefile_install Makefile
+make install
+```
 
 COMPILING - LINUX
 ==================================================
